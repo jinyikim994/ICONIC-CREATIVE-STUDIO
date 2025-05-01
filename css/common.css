@@ -107,7 +107,7 @@ header .active{
 
     header .logo a{
         font-size: 35px;
-        padding: 0 10px;    
+        /* padding: 0 10px;     */
     }
 
     header #navMenu{
@@ -203,6 +203,10 @@ header .active{
     header .logo a{
         font-size: 20px;
         padding: 0 10px;    
+    }
+
+    .border-b-g{
+        padding: 0;
     }
 }
 
