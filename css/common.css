@@ -205,7 +205,7 @@ header .active{
         padding: 0 10px;    
     }
 
-    header .border-b-g .logo a{
+    .border-b-g .logo a{
         padding: 0;
     }
 }
