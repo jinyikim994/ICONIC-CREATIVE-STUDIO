@@ -187,7 +187,7 @@
   .main-content {
     flex-direction: column;
     align-items: center;
-    margin-top: 60px;
+    margin-top: 120px;
   }
 
   .magazine-cover {
@@ -257,8 +257,13 @@
   <!-- header -->
   <header class="border-b-g">
     <h1 class="logo"><a href="../index.html">ICONIC CREATIVE STUDIO</a></h1>
-    <nav>
-      <a href="./artist.html">ARTISTS</a>
+    <button class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <!-- <span></span> -->
+    </button>
+    <nav id="navMenu" class="accordion-menu">
+      <a href="../artist/artist.html">ARTISTS</a>
       <a href="../about/about.html">ABOUT</a>
       <a href="#">MODELS</a>
       <a href="../contact/contact.html">CONTACT</a>
