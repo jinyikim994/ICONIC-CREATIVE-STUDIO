@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masonry Infinite Scroll Gallery</title>
+  <style>
+    /* font */
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #fff;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* common */
+    .border-l{
+      border-left: 1px solid #121717;
+    }
+
+    .border-r{
+      border-right: 1px solid #121717;
+    }
+
+    .border-t{
+      border-top: 1px solid #121717;
+    }
+
+    .border-b{
+      border-bottom: 1px solid #121717;
+    }
+
+    /* header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 93px;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 101px 0 57px;
+      z-index: 10;
+      font-family: "Raleway", sans-serif;
+      font-weight: 300;
+    }
+
+    header .logo {
+      font-family: 'Arial Black', Gadget, sans-serif;
+      font-size: 2.4rem;
+    }
+
+    header nav a {
+      margin-left: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      color: #343a40;
+      font-weight: 500;
+    }
+
+    /* gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      width: 100vw;
+      height: 100vh;
+      margin-top: 80px; 
+    }
+
+    .gallery .column {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gallery .scroller {
+      display: flex;
+      flex-direction: column;
+      animation: scrollLoop 20s linear infinite;
+    }
+
+    .gallery .column-2 .scroller {
+      animation: scrollLoopReverse 30s linear infinite;
+    }
+
+    .gallery .column-3 .scroller {
+      animation: scrollLoop 20s linear infinite;
+    }
+
+    .gallery .masonry-item {
+      line-height: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery .masonry-item img,
+    .gallery .masonry-item video {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    .gallery .masonry-item video {
+      height: 350px;
+      max-height: 350px; /* 영상 높이 제한 */
+      border: none;
+      object-fit: cover;
+    }
+
+    /* 이미지 호버 시 정보 보여주기 */
+    .gallery .masonry-item .info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      color: #000;
+      padding: 10px;
+      opacity: 1;
+      transform: translateY(100%);
+      /* transition: opacity 0.3s ease, transform 0.3s ease; */
+      /* font-family: 'Pragmatica ExtraLight', sans-serif;  */
+      font-family: 'Cormorant', serif;
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .gallery .masonry-item:hover .info {
+      /* opacity: 1; */
+      transform: translateY(0);
+    }
+
+    .gallery .scroller > * {
+      flex-shrink: 0;
+    }
+
+    @keyframes scrollLoop {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-50%);
+      }
+    }
+
+    @keyframes scrollLoopReverse {
+      0% {
+        transform: translateY(-50%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- header -->
+  <header>
+    <div class="logo">ICONIC CREATIVES STUDIO</div>
+    <nav>
+      <a href="#">ARTISTS</a>
+      <a href="#">ABOUT</a>
+      <a href="#">MODELS</a>
+      <a href="#">CONTACT</a>
+    </nav>
+  </header>
+  <!-- //header -->
+
+  <!-- gallery -->
+  <div class="gallery">
+    <!-- 첫번째 열 -->
+    <div class="column column-1">
+      <div class="scroller">
+        <div class="masonry-item border-r border-b"><img src="https://images.squarespace-cdn.com/content/v1/661cb73c808401180cc94eb2/3b81d7a7-486a-4aec-9bfb-9609e99efa93/Rosanna_11.jpg?format=750w" alt="img01"/> <div class="info">Dazed Magazine<br><span>Production, Studio</span></div></div>
+        <div class="masonry-item border-r border-b"><img src="./images/img03.png" alt="img02"/><div class="info">Dazed Magazine<br><span>Production, Studio</span></div></div>
+        <div class="masonry-item border-r border-b"><img src="./images/img01.png" alt="img03"/><div class="info">Dazed Magazine<br><span>Production, Studio</span></div></div>
+        <div class="masonry-item border-r border-r border-b"><video src="./videos/video03.MP4" autoplay muted loop></video><div class="info">Dazed Magazine<br><span>Production, Studio</span></div></div>
+        <div class="masonry-item border-r border-r border-b"><img src="https://images.squarespace-cdn.com/content/v1/661cb73c808401180cc94eb2/88e1acc4-5ac7-4879-b49a-f7db045f4a5b/Rosanna_6.jpg?format=750w" alt="img04"/><div class="info">Dazed Magazine<br><span>Production, Studio</span></div></div>
+      </div>
+    </div>
+
+    <!-- 두번째 열 -->
+    <div class="column column-2">
+      <div class="scroller">
+        <div class="masonry-item border-r border-b"><img src="https://images.squarespace-cdn.com/content/v1/661cb73c808401180cc94eb2/847749cf-c0e2-4273-8df8-48eaf1f6c53f/SUZI_10.jpg?format=750w" alt="img05"/><div class="info">Dazed Magazine<br><span>Production, Studio</span></div></div>
+        <div class="masonry-item border-r border-b"><video src="./videos/video02.MP4" autoplay muted loop></video><div class="info">Dazed Magazine<br><span>Production, Studio</span></div></div>
+        <div class="masonry-item border-r border-b"><img src="./images/img05.png" alt="img06"/><div class="info">Dazed Magazine<br><span>Production, Studio</span></div></div>
+        <div class="masonry-item border-r border-b"><img src="https://images.squarespace-cdn.com/content/v1/661cb73c808401180cc94eb2/847749cf-c0e2-4273-8df8-48eaf1f6c53f/SUZI_10.jpg?format=750w" alt="img07"/><div class="info">Dazed Magazine<br><span>Production, Studio</span></div></div>
+        <div class="masonry-item border-r border-b"><video src="./videos/video02.MP4" autoplay muted loop></video><div class="info">Dazed Magazine<br><span>Production, Studio</span></div></div>
+      </div>
+    </div>
+
+    <!-- 세번째 열 -->
+    <div class="column column-3">
+      <div class="scroller">
+        <div class="masonry-item border-b"><img src="./images/img02.png" alt="img08"/><div class="info">Dazed Magazine<br><span>Production, Studio</span></div></div>
+        <div class="masonry-item border-b"><img src="https://images.squarespace-cdn.com/content/v1/661cb73c808401180cc94eb2/404b9c2f-9c9e-4271-91e2-3c9045dfaead/MO%26CO_13.jpg?format=750w" alt="img10"/><div class="info">Dazed Magazine<br><span>Production, Studio</span></div></div>
+        <div class="masonry-item border-b"><video src="./videos/video01.MP4" autoplay muted loop></video><div class="info">Dazed Magazine<br><span>Production, Studio</span></div></div>
+        <div class="masonry-item border-b"><img src="./images/img04.png" alt="img09"/><div class="info">Dazed Magazine<br><span>Production, Studio</span></div></div>
+        <div class="masonry-item border-b"><img src="https://images.squarespace-cdn.com/content/v1/661cb73c808401180cc94eb2/3b81d7a7-486a-4aec-9bfb-9609e99efa93/Rosanna_11.jpg?format=750w" alt="img011"/><div class="info">Dazed Magazine<br><span>Production, Studio</span></div></div>
+      </div>
+    </div>
+  </div>
+  <!-- gallery -->
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABOUT</title>
+  <link href="https://fonts.cdnfonts.com/css/pragmatica-extralight" rel="stylesheet">
+  <link rel="stylesheet" href="../css/common.css">
+  <style>
+    header{position: inherit;}
+
+    .about{
+      width: 80%;
+      max-width: 1340px;
+      margin: 100px auto;
+      /* height: 100vh; */
+    }
+
+    .about .title{
+      font-size: 19px;
+      font-weight: 400;
+      font-family: 'Adobe Garamond Pro', sans-serif;
+      text-align: left;
+    }
+
+    .about .image-container{
+      width:50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    .about .slideshow:nth-child(odd) {
+      width: 308px;
+      height: 330px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .about .slideshow:nth-child(even){
+      width: 550px;
+      height: 330px;
+    }
+
+    .about .wrap{
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .about .desc {
+      width: 51%;
+    }
+
+    .about .desc .text-l{
+      font-family: "Cormorant", sans-serif;
+      font-size: 34px;
+      margin: 24px 0 39px 0;
+    }
+
+    .about .desc .text-s{
+      font-family: 'Adobe Garamond Pro', sans-serif;
+      font-size: 19px;
+      margin-bottom: 58px;
+    }
+
+    .persnol-info{
+      font-family: 'Adobe Garamond Pro', sans-serif;
+      padding: 39px 0;
+      font-size: 19px;
+    }
+
+    .persnol-info h4{
+      font-weight: 400;
+    }
+
+    .persnol-info a{
+      text-decoration: underline;
+      color: #1f1f1f;
+      font-size: 19px;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <!-- header -->
+  <header class="border-b-g">
+    <h1 class="logo"><a href="../main.html">ICONIC CREATIVE STUDIO</a></h1>
+    <nav>
+      <a href="../artist/artist.html">ARTISTS</a>
+      <a href="./about.html" class="active">ABOUT</a>
+      <a href="#">MODELS</a>
+      <a href="#">CONTACT</a>
+    </nav>
+  </header>
+  <!-- //header -->
+
+  <!-- About -->
+  <div class="about">
+    <h1 class="title">About</h1>
+    <div class="wrap">
+      <div class="desc">
+        <p class="text-l">It all begins with an idea. Maybe you want<br> to launch a business. Maybe you want to<br> turn a hobby into something more. Or<br> maybe you have a creative project to<br> share with the world. Whatever it is, the<br> way you tell your story online can make<br> all the difference.</p>
+        <p class="text-s">Don’t worry about sounding professional. Sound like you. There are over 1.5 <br>billion websites out there, but your story is what’s going to separate this one<br> from the rest. If you read the words back and don’t hear your own voice in your<br> head, that’s a good sign you still have more work to do.</p>
+      </div>
+      <div class="image-container"><div class="slideshow"></div></div>
+    </div>
+    <hr>
+    <div class="persnol-info">
+      <h4>email@example.com<br><a href="http://www.instagram.com/squarespace" target="_blank">instagram</a></h4>
+    </div>
+  </div>
+  <!-- //About -->
+  
+  <script>
+    const background = document.querySelector('.slideshow');
+    const images = [
+      { url: '../images/img07.jpg', width: '275px', height: '380px' },
+      { url: '../images/img08.jpg', width: '550px', height: '330px' },
+      { url: '../images/img09.jpg', width: '275px', height: '380px' },
+      { url: '../images/img10.jpg', width: '550px', height: '330px' },
+      { url: '../images/img11.jpg', width: '275px', height: '380px' }
+    ];
+    let index = 0;
+  
+    function setImageStyle() {
+      background.style.backgroundImage = `url(${images[index].url})`;
+      background.style.width = images[index].width;
+      background.style.height = images[index].height;
+    }
+  
+    setImageStyle(); // 초기 세팅
+  
+    index++;
+    function changeBackground() {
+      background.style.opacity = 0;
+  
+      setTimeout(() => {
+        setImageStyle();
+        background.style.opacity = 1;
+  
+        index = (index + 1) % images.length;
+      }, 500);
+    }
+  
+    setInterval(changeBackground, 400);
+  </script>
+</body>
+</html>
