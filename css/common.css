@@ -202,7 +202,7 @@ header .active{
 
 @media (max-width: 768px) {
     header .logo a{
-        font-size: 25px;
+        font-size: 20px;
         padding: 0 10px;    
     }
 }
