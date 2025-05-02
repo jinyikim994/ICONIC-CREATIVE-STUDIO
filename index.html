@@ -112,6 +112,11 @@
     /* 아이패드(1024px 이하) */
     @media (max-width: 1024px) { 
 
+      .gallery {
+            height: 100vh;
+            overflow: hidden;
+        }
+
         .about{
           width: 90%;
         }
@@ -135,6 +140,7 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 5px;
             height: 100vh;
+            overflow: hidden;
         }
         .gallery .column {
             all: unset; /* 기존 column 스타일 제거 */
