@@ -13,7 +13,9 @@
     }
 
     header{
-      /* position: initial; */
+      position: relative;
+      height: 93px;
+      z-index: 10;
     }
 
     .title{
@@ -25,10 +27,11 @@
     }
 
     .gallery-container {
-      margin-top:130px;
+      height: 100vh;
       padding: 0 10px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      align-items: center;
       gap: 10px;
       /* padding: 40px; */
       /* max-width: 1440px; */
@@ -84,13 +87,15 @@
       color: #fff;
       text-transform: uppercase;
       z-index: 99;
-      font-family: "Italiana", sans-serif;
+      font-weight: 700;
+      font-family: "Roboto Condensed", sans-serif;
       letter-spacing: 5px;
       z-index: 2;
     }
     
     .gallery-item .name{
-      font-family: "Lato", sans-serif;
+      font-family: 'Times New Roman', sans-serif;
+      font-weight: 400;
       display: inline-block;
       padding: 13px 0;
       font-size: 19px;
